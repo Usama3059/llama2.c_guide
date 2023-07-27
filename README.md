@@ -8,4 +8,4 @@ This contains Chatgpt assisted explaination of amazing karpathy repo [llama2.c](
 ### To do
 
 * Different compiling options
-* 
+* Optimization options
