@@ -16,6 +16,9 @@ Here is a summary of the main components in the code:
 
 Overall, the code seems to be a complete implementation of the Llama-2 Transformer model for text generation. Note that this is an advanced implementation, and understanding the details of the Transformer model is essential to grasp the full functionality of the code.
 
+
+
+
 ### Config Struct
 
 Sure, let's explain each field in the `Config` struct line by line:
@@ -36,6 +39,10 @@ Sure, let's explain each field in the `Config` struct line by line:
     - This field represents the maximum length of the input sequence that the Transformer can process. It is essential to limit the sequence length to avoid memory and computational issues, especially during training and inference on long sequences.
 
 These fields define the core architecture and configuration of the Transformer model. By adjusting these parameters, you can control the size, capacity, and behavior of the model to suit specific tasks and requirements.
+
+
+
+
 
 ### TransformerWeights struct
 
@@ -72,6 +79,9 @@ Sure, let's explain each field in the `TransformerWeights` struct line by line:
 
 These fields collectively represent the weights and parameters used in the Transformer model, which are learned during training and used for inference during prediction.
 
+
+
+
 ### Runstate Struct
 
 Sure, let's explain each field in the `RunState` struct:
@@ -102,6 +112,9 @@ Sure, let's explain each field in the `RunState` struct:
     - This field represents the value cache, which is used to store value vectors for each position in the sequence during the self-attention computation. It is a 3D array with dimensions `(layer, seq_len, dim)`, where `layer` represents the layer index, `seq_len` is the maximum sequence length, and `dim` is the dimension of the Transformer model.
 
 The `RunState` struct is responsible for storing intermediate values and buffers used during the forward pass of the Transformer model. These values are updated and reused as the model processes each token in the input sequence.
+
+
+
 
 ### Malloc_run_state
 
@@ -146,6 +159,10 @@ Let's break down the line `s->att = calloc(p->n_heads * p->seq_len, sizeof(float
 5. `sizeof(float)`: This is a constant that represents the size (in bytes) of a single element of type `float`. It is used to calculate the total size required for the allocation.
 
 So, the line `s->att = calloc(p->n_heads * p->seq_len, sizeof(float));` allocates memory for an array of `p->n_heads * p->seq_len` elements, where each element is of type `float`. The memory is initialized to zero, and the address of the allocated memory block is assigned to the `att` field inside the `RunState` struct. This allows the `att` array to be used to store floating-point values, specifically for the attention scores/weights in the Transformer computation.
+
+
+
+
 
 ### Checkpoint_init_weights
 
@@ -213,6 +230,10 @@ The functions `malloc_run_state` and `checkpoint_init_weights` serve essential r
 
 In summary, both `malloc_run_state` and `checkpoint_init_weights` are essential for proper memory management and weight initialization, respectively. These functions contribute to the correct functioning of the Llama-2 Transformer model and ensure that it can handle different configurations and load the appropriate weights from the checkpoint file.
 
+
+
+
+
 ### Accum, rmsnorm and softmax def:
 
 Sure! Let's go through each function one by one and explain their functionality:
@@ -244,6 +265,11 @@ Sure! Let's go through each function one by one and explain their functionality:
     - The result of each dot product is stored in the corresponding element of the output vector `xout`.
 
 These functions are fundamental building blocks used in the Llama-2 Transformer model to perform element-wise operations, normalization, and matrix multiplications necessary for the forward pass during inference. They contribute to the overall functionality and effectiveness of the model's inference process.
+
+
+
+
+
 
 ### Transformer def:
 
@@ -550,6 +576,10 @@ f;
     - The result is stored in the array `logits`, representing the logits for each token in the vocabulary.
 
 The `transformer` function represents the core computation of a single Transformer block, combining self-attention, feed-forward neural networks, and residual connections, as commonly used in Transformer-based language models.
+
+
+
+
 
 ### Sample def:
 
