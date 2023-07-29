@@ -19,7 +19,7 @@ It's important to note that while OpenMP is a powerful tool for shared-memory pa
 
 Certainly! Let's go through some basic examples of using OpenMP in C++ to parallelize a simple for-loop and a parallel section.
 
-### Examples:
+## Examples:
 
 **Example 1: Parallelizing a For-Loop**
 
