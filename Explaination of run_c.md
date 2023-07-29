@@ -515,6 +515,8 @@ f;
 
 - This line performs a matrix multiplication (`matmul`) between the intermediate output `hb` and the weight matrix `w2` for the feed-forward neural network.
     - The result is stored back in `xb` to be used in the next step.
+ 
+
 
 ```c
         accum(x, s->xb, dim);
@@ -569,3 +571,6 @@ Here's how the function works:
 4. If the loop completes without finding a suitable index to sample, it means that the random number `r` was greater than or equal to the sum of all probabilities (due to rounding errors). In this case, the function returns the last index `n - 1`.
 
 The function is used to randomly sample an index based on the provided probabilities. The higher the probability of an event, the more likely it is to be sampled. This is commonly used in various applications such as generating text, simulating random events, and training probabilistic models like language models.
+
+### About me
+Hi, I am Usama, please add/remove or update any information for better understanding and PR it on this [repo](https://github.com/Usama3059/llama2.c_guide) .
